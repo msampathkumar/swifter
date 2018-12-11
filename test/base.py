@@ -36,3 +36,13 @@ def swifter_dataframe_apply_multiple_column(df, fns, cols):
     return df[cols].swifter.apply(fns)
 
 
+def pandas_dataframe_rolling_apply(df, fns, cols):
+    # TODO
+    pass
+
+
+def swifter_dataframe_rolling_apply(df, fns, cols):
+    # TODO
+    pass
+
+
