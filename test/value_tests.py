@@ -3,7 +3,7 @@ Purpose of this test file is to cover unit test cases for Swifter.
 """
 import random
 import pandas as pd
-import swifter # pylint: disable=unused-import
+import swifter
 
 try:
     from . import base
@@ -98,7 +98,11 @@ def test_swifter_apply_on_multiple_columns():
     pd_objects_checks(pd_value, swifter_value, tag)
 
 
-def test_swifter_rolling_apply():
+def test_swifter_rolling_sum_apply():
     # TODO
-    pass
+    # - AttributeError - pd.DataFrame.rolling
+    _df = pd.DataFrame({'x': range(5)})
+    pd_result = _df.rolling(2, 1).sum().values
+    swifter_result = _df.swifter.rolling(2, 1).sum().values
+    assert (pd_result == swifter_result).all(), "Swifter Rolling update failed"
 
